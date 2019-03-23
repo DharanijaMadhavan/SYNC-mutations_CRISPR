@@ -14,13 +14,11 @@ Methodology & Comments
 1. Cross referenced with mutation data of cell lines and identified cell lines containing gene mutations. (Plot 1 and 2 )
 2. Distribution of CERES of gene across all cell lines evaluated. This should be centered around 0 and normally distributed. CERES of gene in cell lines containging non-synonymous mutations highlighted. If this is below -0.5, it would imply the mutation is probably oncogenic. (Plot 3)
 3. CERES data for each cell line containing any one of the SYNC mutations was analysed. 
-		3a. CERES of each gene in cell line of interest compared the distribution of CERES of that gene across all cell lines.
-					pvalue calculated. (Refer to Distribution_parameters.R for details of statistical test)
-		3b. Delta CERES = CERES of gene in cell line of interest - mean CERES of gene across cell lines
-		3c. Distribution of dCERES assessed for all genes to see if it is centered around 0. (Plot 4)
-		3d. dCERES plotted against -log10FDR. If FDR < 0.1 gene is flagged as significant. Note that this combined with a dCERES
-				around -0.5 is indicative of a synthetic lethality. (Plot 5)
-		3f. Table of synthetically lethal genes for each cell line and common genes across all cell lines generated.
+4. CERES of each gene in cell line of interest compared the distribution of CERES of that gene across all cell lines. pvalue calculated. (Refer to Distribution_parameters.R for details of statistical test)
+5. Delta CERES = CERES of gene in cell line of interest - mean CERES of gene across cell lines
+6. Distribution of dCERES assessed for all genes to see if it is centered around 0. (Plot 4)
+7. dCERES plotted against -log10FDR. If FDR < 0.1 gene is flagged as significant. Note that this combined with a dCERES around -0.5 is indicative of a synthetic lethality. (Plot 5)
+8. Table of synthetically lethal genes for each cell line and common genes across all cell lines generated.
 		
 
 
