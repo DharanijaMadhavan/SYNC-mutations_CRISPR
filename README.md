@@ -24,7 +24,7 @@ Following workflow applied for each gene
 4. CERES of each gene in cell line of interest compared to the distribution of CERES of that gene across all cell lines, and pvalue computed. (Refer to Distribution_parameters.R for details of statistical test)
 5. Calculation of Delta CERES = CERES of gene in cell line of interest - mean CERES of gene across cell lines 
 6. Distribution of dCERES assessed for all genes to see if it is centered around 0. (Plot 4)
-7. dCERES plotted against -log10FDR. If FDR < 0.1, gene is flagged as significant. Note that this combined with a dCERES around -0.5 is indicative of a synthetic lethality. (Plot 5)
+7. dCERES plotted against -log10FDR. If FDR < 0.05 and |dCERS| > 0.5,  gene is flagged as significant. Note that genes with a dCERES around -0.5 is indicative of a synthetic lethality. (Plot 5)
 8. Table of genes with significantly different CERES from population mean for each cell line and common genes across all cell lines generated.
 		
 
