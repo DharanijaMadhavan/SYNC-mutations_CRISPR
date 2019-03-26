@@ -1,5 +1,3 @@
-
-setwd("/Users/dharanijamadhavan/Documents/Analysis/SYNCmutations_CRISPR_depmap")
 library(ggplot2)
 library(data.table)
 library(stringr)
@@ -201,20 +199,11 @@ marrangeGrob(grobs = plot_combine, ncol=2, nrow=nrows, bottom ="\u0394CERES (cel
 
 sl <- lapply(mut_ceres_pval, function(x) subset(x, x$FDR < 0.1) %>% select(c(Gene,dCERES, FDR))) 
 names(sl) <- Cell.lines_crispr
+             
+ sl <- lapply(sl, function(x) {
+           cbind(x, "dCERES" = round(x$dCERES,2), "FDR"= scientific(x$FDR, digits=3))}) %>% 
+      lapply(function(x) x[,-c(2,3)])
+
 
 list(as.factor(Reduce(intersect, sapply(sl, function(x) x$Gene))))
 
-###########################
-#Creating a summary table
-##########################
-
-Summary <- data.frame(matrix(ncol = 0, nrow = 4))
-mutations2 <- data.frame(sapply(mutations, function(x) grepl(x, Cell.lines_crispr2$Protein_Change))) %>% 
-  apply(2, function(x) {any(x) == T}) %>% which(TRUE) %>% names
-
-
-Summary <- rbind(c(Gene, paste(mutations2, collapse=",") , nrow(Cell.lines), 
-                            length(Cell.lines_crispr)), Summary)
-colnames(Summary) <- c("Gene", "Mutations Analysed","#Cell lines with SYNC mutations",
-                       "#Cell lines with SYNC mutations & CRISPR data ")
-  
